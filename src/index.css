@@ -4,8 +4,29 @@
 
 html {
   scroll-behavior: smooth;
+  /* Offset anchor scroll so the fixed navbar doesn't cover headings. */
+  scroll-padding-top: 5rem;
 }
 
 body {
   @apply bg-neutral-950 text-neutral-100 antialiased;
+}
+
+/* Respect users who prefer reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Nicer focus ring for keyboard users. */
+:focus-visible {
+  @apply outline-none ring-2 ring-brand ring-offset-2 ring-offset-neutral-950;
 }

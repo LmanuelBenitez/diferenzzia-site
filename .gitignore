@@ -9,3 +9,4 @@ dist-ssr
 .netlify
 coverage
 *.log
+.forge-permissions.json
